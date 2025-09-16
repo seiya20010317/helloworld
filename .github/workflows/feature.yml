@@ -1,0 +1,22 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches:
+      - main   # deploy only when main is updated
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}       # stored in GitHub repo secrets
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}     # from Vercel settings
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }} # from Vercel settings
+          working-directory: ./
