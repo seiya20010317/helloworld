@@ -12,5 +12,19 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Dummy HTML Test
-        run: echo "HTML looks good ✅"
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Unit tests
+        run: npm test -- --ci
+
+      - name: Build
+        run: npm run build
