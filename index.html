@@ -1,15 +1,313 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Office - Hello World</title>
-</head>
-<body>
-    <div class="container">
-        <h1>Hello, Office Workers!</h1>
-        <p>This is our first deployment of Office Yelp! 🚀</p>
-        <p>Yayyy 🚀</p>
-        <p>it worked??? 🚀</p>
-        <p>Deployed 🚀</p>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>CSS単位について</title>
+  </head>
+  <body>
+    <h1>🎨 CSS単位について</h1>
+
+    <div class="experiment-section">
+      <h2>Step 1: 絶対単位（px）を理解する</h2>
+      <p>
+        <strong>px（ピクセル）</strong
+        >は画面上の最小単位で、常に同じサイズを保ちます。
+      </p>
+
+      <div class="demo-box px-demo" id="px-demo">
+        <span class="size-indicator"></span>
+      </div>
+
+      <div class="task">
+        <h3>🔧 実習タスク 1</h3>
+        <p>
+          CSSの <code>.px-demo</code> の
+          <code>width</code> を以下の値に変更して、結果を観察してください：
+        </p>
+        <ul>
+          <li><code>200px</code> に変更</li>
+          <li><code>400px</code> に変更</li>
+          <li>
+            ブラウザウィンドウのサイズを変更しても、ボックスのサイズは変わらないことを確認
+          </li>
+        </ul>
+      </div>
     </div>
-</body>
+
+    <div class="experiment-section">
+      <h2>Step 2: 相対単位（%）を理解する</h2>
+      <p>
+        <strong>%（パーセント）</strong
+        >は親要素のサイズに対する割合で指定します。
+      </p>
+
+      <div class="percent-box">
+        <div class="demo-box percent-demo">
+          <!-- ここにパーセントの値が入る -->
+          <span class="size-indicator">60%</span>
+        </div>
+      </div>
+
+      <div class="task">
+        <h3>🔧 実習タスク 2</h3>
+        <p>以下の実験を行ってください：</p>
+        <ol>
+          <li>
+            <code>.percent-demo</code> の <code>width</code> を
+            <code>30%</code> や <code>80%</code> に変更
+          </li>
+          <li>
+            ブラウザウィンドウのサイズを変更して、ボックスが親要素（白い背景部分）に追随することを確認
+          </li>
+          <li>
+            パーセント指定の要素は、親要素の幅(今回は<code>"percent-box"</code>)が変わると自動的にサイズが調整されることを理解
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="experiment-section">
+      <h2>Step 3: ビューポート単位（vw/vh）を理解する</h2>
+      <p>
+        <strong>vw/vh</strong
+        >はブラウザの表示領域（ビューポート）を基準とします。<br />
+        <code>1vw = ビューポート幅の1%</code>、<code
+          >1vh = ビューポート高さの1%</code
+        >
+      </p>
+
+      <div class="demo-box vw-demo">
+        <!--  ここに幅の値が入る -->
+        <span class="size-indicator">50vw</span>
+      </div>
+
+      <div class="demo-box vh-demo">
+        <!--  ここに高さの値が入る -->
+        <span class="size-indicator">25vh</span>
+      </div>
+
+      <div class="task">
+        <h3>🔧 実習タスク 3</h3>
+        <p>ビューポート単位の動作を確認してください：</p>
+        <ol>
+          <li>
+            <code>.vw-demo</code> の <code>width</code> を <code>30vw</code> や
+            <code>70vw</code> に変更
+          </li>
+          <li>
+            <code>.vh-demo</code> の <code>height</code> を <code>15vh</code> や
+            <code>40vh</code> に変更
+          </li>
+          <li>
+            ブラウザウィンドウのサイズを変更して、これらのボックスが画面サイズに直接連動することを確認
+          </li>
+          <li>
+            %との違い：%は親要素基準、vw/vhは画面サイズ基準であることを理解
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="experiment-section">
+      <h2>Step 4: フォント基準単位（em/rem）を理解する</h2>
+      <p>
+        <strong>em</strong
+        >は親要素のフォントサイズ基準、<strong>rem</strong>はルート要素（html）のフォントサイズ基準です。
+      </p>
+
+      <div class="parent-container">
+        <p class="instruction">この親コンテナのフォントサイズは18pxです</p>
+
+        <div class="demo-box em-demo">
+          <!-- ここに値が入る -->
+          <span class="size-indicator">15em</span>
+        </div>
+
+        <div class="demo-box rem-demo">
+          <!-- ここに値が入る -->
+          <span class="size-indicator">15rem</span>
+        </div>
+      </div>
+
+      <div class="task">
+        <h3>🔧 実習タスク 4</h3>
+        <p>em と rem の違いを体験してください：</p>
+        <ol>
+          <li>
+            <code>.parent-container</code> の <code>font-size</code> を
+            <code>24px</code> に変更して、em ボックスのサイズ変化を確認
+          </li>
+          <li>
+            <code>html</code> の <code>font-size</code> を
+            <code>20px</code> に変更して、rem ボックスのサイズ変化を確認
+          </li>
+          <li>
+            em は親要素の影響を受け、rem は常にルート要素を基準とすることを理解
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="experiment-section">
+      <h2>📚 学習のまとめ</h2>
+
+      <h3>✅ 単位の種類と特徴</h3>
+      <ul>
+        <li>
+          <strong>絶対単位（px）</strong> … 常に同じ大きさ。<br />
+          → アイコンやボーダーなど、固定サイズが必要な場面に使う。
+        </li>
+        <li>
+          <strong>相対単位（% / vw / vh）</strong> …
+          画面や親要素に合わせて伸縮。<br />
+          → レスポンシブレイアウトに便利。
+        </li>
+        <li>
+          <strong>フォント基準単位（em / rem）</strong> …
+          フォントサイズを基準に拡縮。<br />
+          → テキストや余白をスケーラブルに指定できる。
+        </li>
+      </ul>
+    </div>
+  </body>
+  <!-- app.jsを読み込む -->
+  <script>
+    // 画面上に各デモの現在サイズ（px / % / vw / vh / em / rem / font-size）を表示する
+document.addEventListener("DOMContentLoaded", () => {
+  const debounce = (fn, wait = 100) => {
+    let t;
+    return (...args) => {
+      clearTimeout(t);
+      t = setTimeout(() => fn(...args), wait);
+    };
+  };
+
+  function ensureIndicator(el) {
+    let ind = el.querySelector(".size-indicator");
+    if (!ind) {
+      ind = document.createElement("span");
+      ind.className = "size-indicator";
+      ind.style.display = "block";
+      ind.style.marginTop = "8px";
+      ind.style.fontWeight = "700";
+      ind.style.height = "50px";
+      el.appendChild(ind);
+    }
+    return ind;
+  }
+
+  function ensureLabel(el) {
+    // メイン表示用ラベル（textContent を直接書き換える代わりに使う）
+    let lbl = el.querySelector(".demo-label");
+    if (!lbl) {
+      lbl = document.createElement("div");
+      lbl.className = "demo-label";
+      lbl.style.display = "block";
+      lbl.style.fontWeight = "600";
+      // label を先頭に挿入（元の説明テキストの代わりになる）
+      el.insertBefore(lbl, el.firstChild);
+    }
+    return lbl;
+  }
+
+  function updateIndicators() {
+    const demos = document.querySelectorAll(".demo-box, .clamp-text");
+    demos.forEach((el) => {
+      const ind = ensureIndicator(el);
+      const lbl = ensureLabel(el);
+      const rect = el.getBoundingClientRect();
+      const cs = getComputedStyle(el);
+      let indicatorText = "";
+      let labelText = "";
+
+      if (el.classList.contains("px-demo")) {
+        const w = Math.round(rect.width);
+        indicatorText = `${w}px`;
+        labelText = `幅: ${w}px`;
+      } else if (el.classList.contains("percent-demo")) {
+        const w = Math.floor(rect.width);
+        const parent = el.parentElement || document.documentElement;
+        const parentW =
+          parent.getBoundingClientRect().width ||
+          document.documentElement.clientWidth;
+        const pct = Math.floor((w / parentW) * 100) + 1;
+        indicatorText = `${pct}% (${w}px)`;
+        labelText = `幅: ${pct}%`;
+      } else if (el.classList.contains("vw-demo")) {
+        const w = Math.floor(rect.width);
+        const vw = Math.floor(((w / window.innerWidth) * 100).toFixed(1));
+        indicatorText = `${w}px (${vw}vw)`;
+        labelText = `幅: ${w}px (${vw}vw)`;
+      } else if (el.classList.contains("vh-demo")) {
+        const h = Math.floor(rect.height);
+        const vh = Math.floor((h / window.innerHeight) * 100);
+        indicatorText = `${h}px (${vh}vh)`;
+        labelText = `高さ: ${h}px \n (${vh}vh)`;
+      } else if (el.classList.contains("em-demo")) {
+        const style = window.getComputedStyle(el);
+        const w = rect.width;
+        const parentFont =
+          parseFloat(getComputedStyle(el.parentElement).fontSize) || 16;
+        const em = (w / parentFont).toFixed(2);
+        indicatorText = `${em}em (${Math.round(w)}px)`;
+        labelText = `幅: ${em}em (${Math.round(w)}px)`;
+      } else if (el.classList.contains(".parent-container")) {
+        const instruction = el.querySelector(".instruction");
+        const style = window.getComputedStyle(el);
+        console.log(style.fontSize);
+        instruction.textContent = `親コンテナのフォントサイズ: ${style.fontSize}`;
+      } else if (el.classList.contains("rem-demo")) {
+        const w = rect.width;
+        const rootFont =
+          parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+        const rem = (w / rootFont).toFixed(2);
+        indicatorText = `${rem}rem (${Math.round(w)}px)`;
+        labelText = `幅: ${rem}rem (${Math.round(w)}px)`;
+      } else if (el.classList.contains("clamp-demo")) {
+        const w = Math.round(rect.width);
+        indicatorText = `${w}px`;
+        labelText = `幅 (clamp): ${w}px`;
+      } else if (el.classList.contains("clamp-text")) {
+        const fs = parseFloat(getComputedStyle(el).fontSize);
+        const rootFont =
+          parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+        const rem = (fs / rootFont).toFixed(2);
+        indicatorText = `font-size: ${Math.round(fs)}px (${rem}rem)`;
+        // clamp-text はラベルは既存テキストを残したいので短めに
+        labelText = `テキストサイズ: ${Math.round(fs)}px`;
+      } else {
+        indicatorText = `${Math.round(rect.width)}×${Math.round(
+          rect.height
+        )}px`;
+        labelText = `${Math.round(rect.width)}×${Math.round(rect.height)}px`;
+      }
+
+      // ラベルとインジケーターを更新（indicator は下部、label は上部）
+      lbl.textContent = labelText;
+      ind.textContent = indicatorText;
+    });
+
+    const parent = document.querySelector(".parent-container");
+    if (parent) {
+      const instruction = parent.querySelector(".instruction");
+      const style = window.getComputedStyle(parent);
+      instruction.textContent = `親コンテナのフォントサイズ: ${style.fontSize}`;
+    }
+  }
+
+  const handle = debounce(updateIndicators, 80);
+  updateIndicators();
+  window.addEventListener("resize", handle);
+  // フォントサイズを変えたり CSS を編集した時に反映させたい場合は MutationObserver も有効
+  const mo = new MutationObserver(debounce(updateIndicators, 300));
+  mo.observe(document.documentElement, {
+    attributes: true,
+    subtree: true,
+    childList: true,
+  });
+});
+
+  </script>
 </html>
