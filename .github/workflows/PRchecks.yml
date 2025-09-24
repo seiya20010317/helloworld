@@ -14,4 +14,10 @@ jobs:
 
       - name: Dummy HTML Test
         run: echo "HTML looks good ✅"
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
